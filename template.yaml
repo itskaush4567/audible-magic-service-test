@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: lambdaFunction.lambda_handler
       Runtime: python2.7
-      CodeUri: .
+      CodeUri: ./
       Description: ''
       MemorySize: 128
       Timeout: 30
