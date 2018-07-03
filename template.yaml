@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  AudibleMagicTestFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdaFunction.lambda_handler
+      Runtime: python2.7
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 30
+      Role: >-
+        arn:aws:iam::019343560973:role/Lambda-GenericExecutionRole-DataEngineering
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: ANY
+        Api2:
+          Type: Api
+          Properties:
+            Path: '/{proxy+}'
+            Method: ANY
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-f2375f84
+        SubnetIds:
+          - subnet-b62015eb
+          - subnet-40bc450a
+      Environment:
+        Variables:
+          LD_LIBRARY_PATH: /tmp
