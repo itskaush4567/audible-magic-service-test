@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Python code...
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - lambdaFunction.py
+    - template.yaml
+    - RobloxLR_v20.config
+    - AudibleMagicSDK/*
+  discard-paths: yes
